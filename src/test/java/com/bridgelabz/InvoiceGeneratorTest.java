@@ -46,4 +46,17 @@ public class InvoiceGeneratorTest {
         double fare = invoiceGenerator.calculateFare(rides);
         Assert.assertEquals(30, fare, 0.0);
     }
+
+    /**
+     * UC 3 - Enhanced Invoice
+     */
+    @Test
+    public void givenMultipleRides_shouldReturninvoiceSummary() {
+        Ride[] rides = {new Ride(2.0, 5),
+                new Ride(0.1, 1)
+        };
+        InvoiceSummary summary = invoiceGeneratorService.getInvoiceSummary(rides);
+        InvoiceSummary expectedInvoiceSummary = new InvoiceSummary(2, 30.0);
+        Assert.assertEquals(expectedInvoiceSummary, summary);
+    }
 }
