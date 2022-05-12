@@ -59,4 +59,16 @@ public class InvoiceGeneratorTest {
         InvoiceSummary expectedInvoiceSummary = new InvoiceSummary(2, 30.0);
         Assert.assertEquals(expectedInvoiceSummary, summary);
     }
+
+    //STEP 4 : Invoice Service
+    @Test
+    public void givenUserAndRides_ShouldReturnInvoiceSummary() {
+        String user = "mangeshb9903@gmail.com";
+        Ride[] rides = {new Ride(2.0, 5),
+                new Ride(0.1, 1)};
+        invoiceService.addRides(user, rides);
+        InvoiceSummary summary = invoiceService.getInvoiceService(user);
+        InvoiceSummary expectedInvoiceSummary = new InvoiceSummary(2, 30.0);
+        Assert.assertEquals(expectedInvoiceSummary, summary);
+    }
 }
