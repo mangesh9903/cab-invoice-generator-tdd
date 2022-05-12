@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="cab-invoice-generator-tdd" />
+        <module name="cab-invoice-generator-tdd-master" />
       </profile>
     </annotationProcessing>
   </component>
