@@ -10,6 +10,7 @@ public class InvoiceSummary {
     public InvoiceSummary(int noOfRides, double totalFare) {
         this.noOfRides = noOfRides;
         this.totalFare = totalFare;
+        this.avgerageFare = this.totalFare / this.noOfRides;
     }
 
     @Override
@@ -18,5 +19,14 @@ public class InvoiceSummary {
         if (o == null || getClass() != o.getClass()) return false;
         InvoiceSummary that = (InvoiceSummary) o;
         return noOfRides == that.noOfRides && Double.compare(that.totalFare, totalFare) == 0 && Double.compare(that.avgerageFare, avgerageFare) == 0;
+    }
+
+    @Override
+    public String toString() {
+        return "InvoiceSummary{" +
+                "noOfRides=" + noOfRides +
+                ", totalFare=" + totalFare +
+                ", avgerageFare=" + avgerageFare +
+                '}';
     }
 }

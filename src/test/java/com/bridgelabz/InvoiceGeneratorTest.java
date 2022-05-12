@@ -43,8 +43,9 @@ public class InvoiceGeneratorTest {
         Ride[] rides = {new Ride(2.0, 5),
                 new Ride(0.1, 1)
         };
-        double fare = invoiceGenerator.calculateFare(rides);
-        Assert.assertEquals(30, fare, 0.0);
+        InvoiceSummary summary = invoiceGenerator.calculateFare(rides);
+        InvoiceSummary expectedInvoiceSummary = new InvoiceSummary(2, 30);
+        Assert.assertEquals(expectedInvoiceSummary, summary);
     }
 
     /**
@@ -55,7 +56,7 @@ public class InvoiceGeneratorTest {
         Ride[] rides = {new Ride(2.0, 5),
                 new Ride(0.1, 1)
         };
-        InvoiceSummary summary = invoiceGenerator.getInvoiceSummary(rides);
+        InvoiceSummary summary = invoiceGenerator.calculateFare(rides);
         InvoiceSummary expectedInvoiceSummary = new InvoiceSummary(2, 30.0);
         Assert.assertEquals(expectedInvoiceSummary, summary);
     }
@@ -66,8 +67,8 @@ public class InvoiceGeneratorTest {
         String user = "mangeshb9903@gmail.com";
         Ride[] rides = {new Ride(2.0, 5),
                 new Ride(0.1, 1)};
-        invoiceService.addRides(user, rides);
-        InvoiceSummary summary = invoiceService.getInvoiceService(user);
+        invoiceGenerator.addRides(user, rides);
+        InvoiceSummary summary = invoiceGenerator.getInvoiceService(user);
         InvoiceSummary expectedInvoiceSummary = new InvoiceSummary(2, 30.0);
         Assert.assertEquals(expectedInvoiceSummary, summary);
     }
