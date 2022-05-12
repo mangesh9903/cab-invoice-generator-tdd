@@ -75,7 +75,6 @@ public class InvoiceGeneratorTest {
         Assert.assertEquals(expectedInvoiceSummary, summary);
     }
 
-
     /**
      * UC 5 - Premium Rides (Bonus)
      */
@@ -84,11 +83,8 @@ public class InvoiceGeneratorTest {
         String user1 = "Mangesh";
         Ride[] rides1 = {new Ride(RideCategory.PREMIUM, 2.0, 5), new Ride(RideCategory.NORMAL, 0.1, 1)};
         invoiceGenerator.addRides(user1, rides1);
-        String user2 = "Archana";
-        Ride[] rides2 = {new Ride(RideCategory.PREMIUM, 3.0, 5), new Ride(RideCategory.NORMAL, 0.1, 1)};
-        invoiceGenerator.addRides(user2, rides2);
         InvoiceSummary summary = invoiceGenerator.getInvoiceService(user1);
-        InvoiceSummary expectedInvoiceSummary = new InvoiceSummary(2, 45);
+        InvoiceSummary expectedInvoiceSummary = new InvoiceSummary(2, 30);
         Assert.assertEquals(expectedInvoiceSummary, summary);
     }
 }
